@@ -1,0 +1,26 @@
+Esercizio – Calcolo prezzi in un e-commerce gerarchico
+
+Contesto:
+Un sistema di e-commerce organizza i prodotti in una struttura gerarchica di categorie.
+
+Ogni categoria pu`o definire uno sconto percentuale che si applica a tutti i prodotti contenuti nella categoria e nelle sue sottocategorie.
+
+Un prodotto può:
+• avere un prezzo base;
+• definire uno sconto proprio (override);
+• oppure ereditare lo sconto dalla categoria superiore.
+
+La struttura è rappresentata come un albero radicato:
+• nodi interni → categorie;
+• foglie → prodotti.
+
+Obiettivo:
+Scrivere un algoritmo in pseudocodice che, dato l’albero:
+1. scriva in uscita il listino dei prodotti con il loro prezzo finale, ossia dopo aver applicato lo sconto corretto;
+
+Specifiche
+• Ogni nodo ha:
+	– nome
+	– sconto (opzionale)
+• Ogni prodotto (foglia) ha:
+	– prezzo base
