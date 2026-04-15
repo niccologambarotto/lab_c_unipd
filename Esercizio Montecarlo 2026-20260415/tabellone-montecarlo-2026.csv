@@ -1,0 +1,55 @@
+round_num,round_name,player1,seed1,player2,seed2,score,winner
+1,R64,S. Baez,,S. Wawrinka,,2-0,S. Baez
+1,R64,T. Etcheverry,,G. Dimitrov,,2-1,T. Etcheverry
+1,R64,T. Atmane,,E. Quinn,,2-0,T. Atmane
+1,R64,J. Lehecka,11,E. Nava,,2-1,J. Lehecka
+1,R64,M. Fucsovics,,A. Tabilo,,0-2,A. Tabilo
+1,R64,G. Monfils,,T. Griekspoor,,2-1,G. Monfils
+1,R64,V. Vacherot,,J. Cerundolo,,2-1,V. Vacherot
+1,R64,D. Dzumhur,,F. Marozsan,,0-2,F. Marozsan
+1,R64,H. Hurkacz,,L. Darderi,15,2-1,H. Hurkacz
+1,R64,F. Cobolli,10,F. Comesana,,2-1,F. Cobolli
+1,R64,D. Shapovalov,,A. Blockx,,1-2,A. Blockx
+1,R64,C. Norrie,,M. Kecmanovic,,2-1,C. Norrie
+1,R64,J. Fonseca,,G. Diallo,,2-0,J. Fonseca
+1,R64,A. Rinderknech,,K. Khachanov,12,2-0,A. Rinderknech
+1,R64,A. Rublev,13,N. Borges,,2-1,A. Rublev
+1,R64,Z. Bergs,,A. Mannarino,,2-0,Z. Bergs
+1,R64,C. Garin,,M. Arnaldi,,2-0,C. Garin
+1,R64,M. Cilic,,A. Shevchenko,,2-0,M. Cilic
+1,R64,C. Moutet,,A. Muller,,2-0,C. Moutet
+1,R64,A. Popyrin,,C. Ruud,9,0-2,C. Ruud
+1,R64,F. Cerundolo,16,S. Tsitsipas,,2-0,F. Cerundolo
+1,R64,D. Altmaier,,T. Machac,,1-2,T. Machac
+1,R64,M. Kouame,,U. Humbert,,0-2,U. Humbert
+2,R32,C. Alcaraz,1,S. Baez,,2-0,C. Alcaraz
+2,R32,T. Etcheverry,,T. Atmane,,2-1,T. Etcheverry
+2,R32,J. Lehecka,11,A. Tabilo,,2-1,J. Lehecka
+2,R32,G. Monfils,,A. Bublik,8,0-2,A. Bublik
+2,R32,L. Musetti,4,V. Vacherot,,0-2,V. Vacherot
+2,R32,F. Marozsan,,H. Hurkacz,,0-2,H. Hurkacz
+2,R32,F. Cobolli,10,A. Blockx,,0-2,A. Blockx
+2,R32,C. Norrie,,A. de Minaur,5,1-2,A. de Minaur
+2,R32,D. Medvedev,7,M. Berrettini,,0-2,M. Berrettini
+2,R32,J. Fonseca,,A. Rinderknech,,2-1,J. Fonseca
+2,R32,A. Rublev,13,Z. Bergs,,0-2,Z. Bergs
+2,R32,C. Garin,,A. Zverev,3,0-2,A. Zverev
+2,R32,F. Auger-Aliassime,,M. Cilic,,2-0,F. Auger-Aliassime
+2,R32,C. Moutet,,C. Ruud,9,0-2,C. Ruud
+2,R32,F. Cerundolo,16,T. Machac,,0-2,T. Machac
+2,R32,U. Humbert,,J. Sinner,2,0-2,J. Sinner
+3,R16,C. Alcaraz,1,T. Etcheverry,,2-1,C. Alcaraz
+3,R16,J. Lehecka,11,A. Bublik,8,0-2,A. Bublik
+3,R16,V. Vacherot,,H. Hurkacz,,2-1,V. Vacherot
+3,R16,A. Blockx,,A. de Minaur,5,0-2,A. de Minaur
+3,R16,M. Berrettini,,J. Fonseca,,0-2,J. Fonseca
+3,R16,Z. Bergs,,A. Zverev,3,0-2,A. Zverev
+3,R16,F. Auger-Aliassime,,C. Ruud,9,2-0 (ret),F. Auger-Aliassime
+3,R16,T. Machac,,J. Sinner,2,1-2,J. Sinner
+4,QF,C. Alcaraz,1,A. Bublik,8,2-0,C. Alcaraz
+4,QF,V. Vacherot,,A. de Minaur,5,2-1,V. Vacherot
+4,QF,J. Fonseca,,A. Zverev,3,1-2,A. Zverev
+4,QF,F. Auger-Aliassime,,J. Sinner,2,0-2,J. Sinner
+5,SF,C. Alcaraz,1,V. Vacherot,,2-0,C. Alcaraz
+5,SF,A. Zverev,3,J. Sinner,2,0-2,J. Sinner
+6,F,C. Alcaraz,1,J. Sinner,2,0-2,J. Sinner
