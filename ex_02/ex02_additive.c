@@ -20,6 +20,7 @@ Output:
 - ex02_additive.wav
 */
 
+#define _GNU_SOURCE
 #include <math.h>
 #include <stdio.h>
 #include "libs/tinywav/tinywav.h"
@@ -33,8 +34,10 @@ typedef struct Oscillator {
 
 float oscillator_next(Oscillator *osc)
 {
-  float sample = osc->amplitude * sinf(osc->phase);
-
+	float sample = osc->amplitude * sinf(osc->phase);
+	float step = 2 * M_PI * osc->frequency / osc->sample_rate;
+	osc->phase += step;
+	if(osc->phase > 2*M_PI) {osc->phase -= 2*M_PI;}
   /*
   CHANGEME:
   Update the phase of the oscillator after computing the current sample.
