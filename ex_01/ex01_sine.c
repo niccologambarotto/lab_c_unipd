@@ -21,6 +21,7 @@ Output:
 - ex01_sine.wav
 */
 
+#define _GNU_SOURCE
 #include <math.h>
 #include <stdio.h>
 #include "libs/tinywav/tinywav.h"
@@ -40,7 +41,29 @@ int main(void)
     fprintf(stderr, "Could not open ex01_sine.wav for writing.\n");
     return 1;
   }
-
+	// 1. Use a loop to process the full signal in blocks of 480 samples.
+	for(int i = 0; i < num_frames; i = i + 480)
+	{
+		// 2. For each block, compute how many samples must be written.
+     		// Usually this is 480, but the last block may be shorter.
+     		int block_size;
+     		if((num_frames - i) < 480)
+     		{
+     			block_size = num_frames - i;
+     		}
+		else {block_size = 480;} 
+		
+		// 3. Use another loop to fill the array `samples.
+		for(int j = 0; j < block_size; j++)
+		{
+			int sample_index = i + j;
+			// 5. Compute the sine wave sample, 6. Store the result in `samples[i]`.
+			samples[j] = amplitude * sinf(two_pi * frequency * sample_index / sample_rate);
+		}
+		
+		//7. After filling a block, write it with `tinywav_write_f(...)`.
+		tinywav_write_f(&wav, samples, block_size);
+	}
   /*
   CHANGEME:
   Write the main audio-generation part of the program here.
