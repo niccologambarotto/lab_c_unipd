@@ -20,6 +20,7 @@ Output:
 - ex03_malloc_buffer.wav
 */
 
+#define M_PI 3.14159265358979323846
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -36,7 +37,7 @@ int main(void)
   float *samples = NULL;
   TinyWav wav;
   int i;
-
+  samples = (float*) malloc(num_frames * sizeof(float));
   /*
   CHANGEME:
   Allocate memory for the audio buffer and store the address in `samples`.
