@@ -38,10 +38,12 @@ int main(void)
   TinyWav wav;
   int i;
   samples = (float*) malloc(num_frames * sizeof(float));
+  
+  samples = malloc(sizeof(num_frames));
+  
   /*
   CHANGEME:
   Allocate memory for the audio buffer and store the address in `samples`.
-
   What your code should do:
   1. Call `malloc(...)`.
   2. Request enough memory for `num_frames` elements of type `float`.
@@ -50,7 +52,7 @@ int main(void)
 
   In other words, you need space for the whole signal, not just one sample.
   */
- 
+
   if (samples == NULL) {
     fprintf(stderr, "malloc failed.\n");
     return 1;
