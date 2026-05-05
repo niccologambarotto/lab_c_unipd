@@ -23,6 +23,7 @@ Output:
 - ex06_spectrum.csv
 */
 
+#define M_PI 3.14159265358979323846
 #include <stdio.h>
 #include <stdlib.h>
 #include "dft.h"
@@ -75,7 +76,15 @@ int main(void)
 
   tinywav_read_f(&input_wav, samples, num_frames);
   tinywav_close_read(&input_wav);
-
+  
+  int sample_rate = sample_rate = (int) input_wav.h.SampleRate;
+  
+  for(i = 0; i < window_size; i++)
+  {
+  	window[i] = samples[i];
+  }
+  
+  dft_real_magnitude(window, window_size, sample_rate, frequencies, magnitudes);
   /*
   CHANGEME:
   Prepare the input window and run the DFT.
@@ -105,7 +114,12 @@ int main(void)
     free(magnitudes);
     return 1;
   }
-
+  
+  fprintf(csv_file, "The frequencys and magnitudes are:\n");
+  for(i = 0; i < num_bins; i++)
+  {
+  	fprintf(csv_file, "frequencies[%.2f], magnitudes[%.5f]\n", frequencies[i], magnitudes[i]);
+  }
   /*
   CHANGEME:
   Write the spectrum data to the CSV file.
