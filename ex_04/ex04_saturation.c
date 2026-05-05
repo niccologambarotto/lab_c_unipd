@@ -30,36 +30,45 @@ Output:
 
 int main(void)
 {
-  TinyWav input_wav;
-  TinyWav output_wav;
-  float *samples;
-  int num_frames;
-  int sample_rate;
-  int i;
+	TinyWav input_wav;
+	TinyWav output_wav;
+	float *samples;
+	int num_frames;
+	int sample_rate;
+	int i;
 
-  if (tinywav_open_read(&input_wav, "sample_input.wav", TW_INLINE) != 0) {
-    fprintf(stderr, "Could not open sample_input.wav.\n");
-    return 1;
-  }
+	if (tinywav_open_read(&input_wav, "sample_input.wav", TW_INLINE) != 0) 
+	{
+		fprintf(stderr, "Could not open sample_input.wav.\n");
+		return 1;
+	}
 
-  if (input_wav.numChannels != 1) {
-    fprintf(stderr, "This exercise expects a mono input file.\n");
-    tinywav_close_read(&input_wav);
-    return 1;
-  }
+	if (input_wav.numChannels != 1) 
+	{
+		fprintf(stderr, "This exercise expects a mono input file.\n");
+		tinywav_close_read(&input_wav);
+		return 1;
+	}
 
-  num_frames = input_wav.numFramesInHeader;
-  sample_rate = (int) input_wav.h.SampleRate;
-  samples = (float *) malloc((size_t) num_frames * sizeof(float));
-  if (samples == NULL) {
-    fprintf(stderr, "malloc failed.\n");
-    tinywav_close_read(&input_wav);
-    return 1;
-  }
+	num_frames = input_wav.numFramesInHeader;
+	sample_rate = (int) input_wav.h.SampleRate;
+	samples = (float *) malloc((size_t) num_frames * sizeof(float));
+	if (samples == NULL) 
+	{
+		fprintf(stderr, "malloc failed.\n");
+		tinywav_close_read(&input_wav);
+		return 1;
+	}
 
-  tinywav_read_f(&input_wav, samples, num_frames);
-  tinywav_close_read(&input_wav);
-
+	tinywav_read_f(&input_wav, samples, num_frames);
+	tinywav_close_read(&input_wav);
+	
+	//1. Use a loop that visits all samples from index 0 to `num_frames - 1`.
+	for(i = 0; i < num_frames; i++)
+	{
+		samples[i] = tanhf(samples[i] * 3.0f);
+	}
+	
   /*
   CHANGEME:
   Process the audio samples in place.
