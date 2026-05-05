@@ -45,6 +45,8 @@ typedef struct BitCrusherContext {
 
 float saturation(float in, void *ctx)
 {
+	SaturationContext *saturation_ctx = (SaturationContext *) ctx;
+	in = tanhf(in * saturation_ctx->drive);
   /*
   CHANGEME:
   Implement this effect function.
@@ -59,7 +61,7 @@ float saturation(float in, void *ctx)
   Look at `bitcrusher(...)` to see how a context pointer is used.
   */
 
-  (void) ctx; // <- ignore this, it's just to suppress warnings until you implement the code, and you can remove it later.
+  //(void) ctx; // <- ignore this, it's just to suppress warnings until you implement the code, and you can remove it later.
   return in;
 }
 
@@ -74,9 +76,12 @@ float bitcrusher(float in, void *ctx)
 
 float process_chain(float in, EffectStage *stages, int num_stages)
 {
-  float sample = in;
-  int i;
-
+	float sample = in;
+	int i;
+	for(i = 0; i < num_stages; i++)
+	{
+		sample = stages[i].fn(sample, stages[i].ctx);
+	}
   /*
   CHANGEME:
   Apply all effects in order.
@@ -129,7 +134,20 @@ int main(void)
 
   tinywav_read_f(&input_wav, samples, num_frames);
   tinywav_close_read(&input_wav);
-
+  
+  saturation_ctx.drive = 2.5f;
+  bitcrusher_ctx.steps = 16;
+  
+  stages[0].fn = saturation;
+  stages[0].ctx = &saturation_ctx;
+  
+  stages[1].fn = bitcrusher;
+  stages[1].ctx = &bitcrusher_ctx;
+  
+  for(i = 0; i < num_frames; i++)
+  {
+  	samples[i] = process_chain(samples[i], stages, 2);
+  }
   /*
   CHANGEME:
   Set up the effect contexts, build the chain, and process the samples.
