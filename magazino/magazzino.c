@@ -76,30 +76,75 @@ int main()
 }
 
 // =====================
-// IMPLEMENTA QUI 👇
+// IMPLEMENTA QUI
 // =====================
 
 Magazzino* creaMagazzino()
 {
-    // TODO
+	Magazzino* mag = malloc(sizeof(Magazzino));
+	//Gestione errore
+	if(mag == NULL) 
+	{
+		printf("Errore nell'allocazione della memoria");
+		return NULL;
+	}
+	mag->dimensione = 0;
+	mag->prodotti = NULL;
+	return mag;
 }
 
 void aggiungiProdotto(Magazzino* mag, int codice, char* nome, int quantita, float prezzo)
 {
-    // TODO
+	//mag->prodotti[mag->dimensione]
+	//Riallocazione memoria
+	Prodotto** temp = realloc(mag->prodotti, (mag->dimensione + 1) * sizeof(Prodotto*)); 
+	if(temp == NULL) 
+	{
+		printf("Errore nell'allocazione della memoria");
+	}
+	mag->prodotti = temp;
+	mag->prodotti[mag->dimensione] = malloc(sizeof(Prodotto));
+	if(mag->prodotti[mag->dimensione] == NULL) 
+	{
+		printf("Errore nell'allocazione della memoria");
+	}
+	
+	mag->prodotti[mag->dimensione]->codice = codice;
+	strcpy(mag->prodotti[mag->dimensione]->nome, nome);
+	mag->prodotti[mag->dimensione]->quantita = quantita;
+	mag->prodotti[mag->dimensione]->prezzo = prezzo;
+	mag->dimensione++;
 }
 
 void stampaMagazzino(Magazzino* mag)
 {
-    // TODO
+	printf("Stampa dei prondotti presenti in magazzino:\n");
+	for(int i = 0; i < mag->dimensione; i++)
+	{
+		printf("Codice: %d | Nome: %s | Quantita': %d | Prezzo: %.2f\n", 
+			mag->prodotti[i]->codice, mag->prodotti[i]->nome, mag->prodotti[i]->quantita, mag->prodotti[i]->prezzo);
+	}
+	
 }
 
 Prodotto* cercaProdotto(Magazzino* mag, int codice)
 {
-    // TODO
+	for(int i = 0; i < mag->dimensione; i++)
+	{
+		if(mag->prodotti[i]->codice == codice)
+		{
+			return mag->prodotti[i];
+		}
+	}
+	return NULL;
 }
 
 void liberaMagazzino(Magazzino* mag)
 {
-    // TODO
+	for(int i = 0; i < mag->dimensione; i++)
+	{
+		free(mag->prodotti[i]);
+	}
+	free(mag->prodotti);
+	free(mag);
 }
